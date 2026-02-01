@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OPTIMUS Sala 3x3 Booking</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .container {
+      background: white;
+      border-radius: 20px;
+      padding: 40px 30px;
+      max-width: 500px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .logo {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+    h1 {
+      color: #1e3c72;
+      font-size: 28px;
+      margin-bottom: 5px;
+    }
+    .court-name {
+      color: #ff6b35;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .phone {
+      color: #666;
+      margin-bottom: 30px;
+      font-size: 16px;
+    }
+    .phone-icon {
+      color: #ff6b35;
+    }
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: white;
+      padding: 16px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+      margin: 10px 0;
+      transition: transform 0.2s;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      max-width: 300px;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(30, 60, 114, 0.3);
+    }
+    .note {
+      background: #fff3cd;
+      border: 2px solid #ffc107;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 30px;
+      text-align: left;
+    }
+    .note-title {
+      font-weight: bold;
+      color: #856404;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    .note-text {
+      color: #856404;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .note-text strong {
+      display: block;
+      margin-top: 10px;
+    }
+    .options {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 2px solid #f0f0f0;
+    }
+    .option-title {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+    .btn-secondary {
+      background: white;
+      color: #1e3c72;
+      border: 2px solid #1e3c72;
+      padding: 12px 30px;
+      font-size: 14px;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">🏀</div>
+    <h1>OPTIMUS</h1>
+    <div class="court-name">SALA 3X3 COURT</div>
+    <div class="phone"><span class="phone-icon">📞</span> 085106137222</div>
+    
+    <button class="btn" onclick="openBookingNormal()">
+      📅 Buka Form Booking
+    </button>
+    
+    <div class="note">
+      <div class="note-title">⚠️ Jika Tidak Terbuka (Page Not Found)</div>
+      <div class="note-text">
+        Ini terjadi jika Anda login dengan beberapa akun Google sekaligus.
+        <strong>Solusi:</strong>
+        <br>1️⃣ Gunakan mode <strong>Incognito/Private Browser</strong>
+        <br>2️⃣ Atau logout dari semua akun Google, lalu login dengan 1 akun saja
+        <br>3️⃣ Atau coba tombol di bawah untuk membuka dengan mode berbeda
+      </div>
+    </div>
+    
+    <div class="options">
+      <div class="option-title">Opsi Lain:</div>
+      <button class="btn btn-secondary" onclick="openBookingNewTab()">
+        🔗 Buka di Tab Baru
+      </button>
+      <button class="btn btn-secondary" onclick="copyLink()">
+        📋 Salin Link
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const BOOKING_URL = 'https://script.google.com/macros/s/AKfycbz8C4dhL80OlVtJMb0wh3VZVe9q0K1PZT2fySJCZZP-EYG2cLAO1P9k8nb5Lh1Miyaiuw/exec';
+    
+    function openBookingNormal() {
+      window.location.href = BOOKING_URL;
+    }
+    
+    function openBookingNewTab() {
+      window.open(BOOKING_URL, '_blank');
+    }
+    
+    function copyLink() {
+      navigator.clipboard.writeText(BOOKING_URL).then(function() {
+        alert('✅ Link telah disalin!\n\nPaste di browser incognito/private mode untuk membuka.');
+      }, function() {
+        prompt('Salin link ini:', BOOKING_URL);
+      });
+    }
+  </script>
+</body>
+</html>
